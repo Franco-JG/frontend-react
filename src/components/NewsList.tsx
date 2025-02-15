@@ -3,13 +3,8 @@ import { NewsListProps } from '../types';
 import NewsCard from './NewsCard';
 
 const NewsList: React.FC<NewsListProps> = ({ news }) => {
-  //! Eliminar este console.log
-  // news.forEach(item => {
-  //   (item.categories) ? console.log(typeof item.categories) : null;
-  // });
-
   return (
-    <div className="news-list">
+    <div className="news-list d-flex flex-wrap gap-4">
       {news.map((item) => (
         <NewsCard key={item.id} news={item} />
       ))}

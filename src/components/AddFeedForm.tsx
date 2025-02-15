@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 import { addFeed } from '../services/api';
 
 const AddFeedForm: React.FC = () => {
@@ -10,23 +10,24 @@ const AddFeedForm: React.FC = () => {
       await addFeed(url);
       setUrl('');
       alert('Feed agregado correctamente');
-      console.log(url);
     } catch (error) {
       alert('Error al agregar el feed');
-      console.error(error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="add-feed-form d-flex flex-column gap-3">
       <input
         type="text"
         value={url}
         onChange={(e) => setUrl(e.target.value)}
+        className="form-control rounded-pill"
         placeholder="URL del feed"
         required
       />
-      <button type="submit">Agregar Feed</button>
+      <button type="submit" className="btn btn-primary rounded-pill py-3">
+        Agregar Feed
+      </button>
     </form>
   );
 };

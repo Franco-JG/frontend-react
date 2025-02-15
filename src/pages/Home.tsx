@@ -23,11 +23,23 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <SearchBar />
-      <NewsFilter />
-      <UpdateNewsButton />
-      <NewsList news={news} />
+    <div className="container mt-4">
+      <div className="d-flex align-items-right">
+        {/* Contenedor de SearchBar y NewsFilter en columna */}
+        <div className="d-flex flex-column flex-grow-1">
+          <SearchBar />
+          <NewsFilter />
+        </div>
+
+        {/* UpdateNewsButton centrado verticalmente */}
+        <div className="update-news-button ms-3">
+          <UpdateNewsButton />
+        </div>
+      </div>
+
+      <div className="news-container mt-4 p-3 rounded shadow">
+        <NewsList news={news} />
+      </div>
     </div>
   );
 };

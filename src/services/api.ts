@@ -27,7 +27,6 @@ export const addFeed = async (url: string): Promise<string> => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      // 'Allow-Control-Allow-Origin': '*',
     },
     body: JSON.stringify({ url }),
   });

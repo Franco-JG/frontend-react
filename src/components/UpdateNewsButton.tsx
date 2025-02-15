@@ -8,7 +8,14 @@ const UpdateNewsButton: React.FC = () => {
   };
 
   return (
-    <button onClick={handleUpdateNews}>Actualizar Noticias</button>
+    <div className="update-news-button mb-4 d-flex justify-content-center">
+      <button
+        className="btn btn-primary rounded-pill shadow-sm py-3 px-5"
+        onClick={handleUpdateNews}
+      >
+        Actualizar Noticias
+      </button>
+    </div>
   );
 };
 
