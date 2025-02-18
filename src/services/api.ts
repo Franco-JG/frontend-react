@@ -12,14 +12,14 @@ export const getFeeds = async (): Promise<Feed[]> => {
 
 };
 
-export const getNews = async (): Promise<News[]> => {
-  const response = await fetch(`${API_URL}?news`);
-  const result : APIResponse = await response.json();
-  if(result.success && Array.isArray(result.data)) {
+export const getNews = async (sortBy = "pub_date"): Promise<News[]> => {
+  const response = await fetch(`${API_URL}?news&order=${sortBy}`);
+  const result: APIResponse = await response.json();
+
+  if (result.success && Array.isArray(result.data)) {
     return result.data as News[];
   }
   throw new Error("Error al obtener las noticias");
-
 };
 
 export const addFeed = async (url: string): Promise<string> => {

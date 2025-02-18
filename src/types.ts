@@ -39,4 +39,10 @@ export interface AddFeedFormProps {
 
 export interface SearchBarProps {
   onSearch: (query: string) => void;
+  onFetchNews: () => void;
+  onSort: (sortBy: string) => void;
+}
+
+export interface UpdateNewsButtonProps {
+  onFetchNews: () => void;
 }

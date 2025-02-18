@@ -2,13 +2,12 @@ import React from "react";
 import UpdateNewsButton from "./UpdateNewsButton";
 import { SearchBarProps } from "../types";
 
-const SearchBar: React.FC<SearchBarProps> = ({onSearch}) => {
-
-  const [query, setQuery] = React.useState<string>('');
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onFetchNews, onSort }) => {
+  const [query, setQuery] = React.useState<string>("");
 
   const handleSearch = () => {
     onSearch(query);
-  }
+  };
 
   return (
     <div className="search-container m-4">
@@ -21,10 +20,7 @@ const SearchBar: React.FC<SearchBarProps> = ({onSearch}) => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button
-          className="btn btn-primary shadow-sm"
-          onClick={handleSearch}
-        >
+        <button className="btn btn-primary shadow-sm" onClick={handleSearch}>
           Search
         </button>
       </div>
@@ -33,20 +29,20 @@ const SearchBar: React.FC<SearchBarProps> = ({onSearch}) => {
       <div className="d-flex justify-content-between align-items-center w-100">
         {/* Botones de filtro alineados a la izquierda */}
         <div className="d-flex gap-2">
-          <button className="btn btn-outline-secondary rounded-3 shadow-sm">
+          <button className="btn btn-outline-secondary rounded-3 shadow-sm" onClick={() => onSort("title")}>
             Title
           </button>
-          <button className="btn btn-outline-secondary rounded-3 shadow-sm">
+          <button className="btn btn-outline-secondary rounded-3 shadow-sm" onClick={() => onSort("description")}>
             Description
           </button>
-          <button className="btn btn-outline-secondary rounded-3 shadow-sm">
+          <button className="btn btn-outline-secondary rounded-3 shadow-sm" onClick={() => onSort("pub_date")}>
             Pub Date
           </button>
-          <button className="btn btn-outline-secondary rounded-3 shadow-sm">
+          <button className="btn btn-outline-secondary rounded-3 shadow-sm" onClick={() => onSort("created_at")}>
             Created Date
           </button>
         </div>
-        <UpdateNewsButton />
+        <UpdateNewsButton onFetchNews={onFetchNews} />
       </div>
     </div>
   );

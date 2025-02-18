@@ -49,7 +49,7 @@ const Feeds: React.FC = () => {
 
   return (
     <div className="container mt-4">
-      <h1 className="mb-4">Agregar Feeds</h1>
+      <h1 className="mb-4">Feed</h1>
       <AddFeedForm onFeedAdded={fetchFeeds}/>
 
       <div className="row mt-4">

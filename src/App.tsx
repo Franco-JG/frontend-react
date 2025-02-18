@@ -1,14 +1,20 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Feeds from "./pages/Feeds";
+import NavBar from "./components/NavBar";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/feeds" element={<Feeds />} />
-    </Routes>
+    <>
+      <NavBar />
+      <div className="container mt-4">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/feeds" element={<Feeds />} />
+        </Routes>
+      </div>
+    </>
   );
-}
+};
 
 export default App;

@@ -24,7 +24,7 @@ const AddFeedForm: React.FC<AddFeedFormProps> = ({onFeedAdded}) => {
         value={url}
         onChange={(e) => setUrl(e.target.value)}
         className="form-control rounded-pill"
-        placeholder="URL del feed"
+        placeholder="URL"
         required
       />
       <button type="submit" className="btn btn-primary rounded-pill py-3">

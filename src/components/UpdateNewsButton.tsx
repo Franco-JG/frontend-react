@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { updateNews } from "../services/api";
+import { updateNews } from "../services/api.ts";
+import { UpdateNewsButtonProps } from "../types.ts";
 
-const UpdateNewsButton: React.FC = () => {
+const UpdateNewsButton: React.FC<UpdateNewsButtonProps> = ({onFetchNews}) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleUpdateNews = async () => {
     await updateNews();
+    onFetchNews();
     setShowModal(true); // Muestra el modal después de actualizar las noticias
   };
 
