@@ -46,3 +46,14 @@ export const updateNews = async (): Promise<void> => {
     throw new Error('Error al actualizar las noticias');
   }
 };
+
+export const searchNews = async (query: string): Promise<News[] | string> => {
+  const response = await fetch(`${API_URL}?news&q=${query}`);
+  const result: APIResponse = await response.json();
+  if (Array.isArray(result.data)) {
+    return result.data as News[];
+  }
+  else{
+    return result.data as string;
+  }
+}

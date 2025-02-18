@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import { addFeed } from '../services/api';
+import { AddFeedFormProps } from '../types';
 
-const AddFeedForm: React.FC = () => {
+const AddFeedForm: React.FC<AddFeedFormProps> = ({onFeedAdded}) => {
   const [url, setUrl] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await addFeed(url);
+      const response = await addFeed(url);
       setUrl('');
-      alert('Feed agregado correctamente');
+      alert(response);
+      onFeedAdded();
     } catch (error) {
       alert('Error al agregar el feed');
     }

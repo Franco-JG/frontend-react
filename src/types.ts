@@ -28,3 +28,15 @@ export interface NewsListProps {
 export interface NewsCardProps {
   news: News;
 }
+
+export interface FeedsCardProps {
+  feed: Feed;
+}
+
+export interface AddFeedFormProps {
+  onFeedAdded: () => void;
+}
+
+export interface SearchBarProps {
+  onSearch: (query: string) => void;
+}
